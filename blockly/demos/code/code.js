@@ -347,7 +347,7 @@ Code.attemptCodeGeneration = function(generator, prettyPrintType) {
                           "        ofproto = datapath.ofproto\n"+
                           "        parser = datapath.ofproto_parser\n\n"+
                           "        match = parser.OFPMatch()\n"+
-                          "        action = [parser.OFPActionOutput(ofproto.OFPP_CONTROLLER, ofproto.OFPCML_NO_BUFFER)]\n"+
+                          "        actions = [parser.OFPActionOutput(ofproto.OFPP_CONTROLLER, ofproto.OFPCML_NO_BUFFER)]\n"+
                           "        self.add_flow(datapath, 0, match, actions)\n\n"+
                           "    def add_flow(self,datapath, priority, match, actions):\n"+
                           "        ofproto = datapath.ofproto\n"+
