@@ -340,7 +340,8 @@ Code.attemptCodeGeneration = function(generator, prettyPrintType) {
       var clase = "class RemoteController(app_manager.RyuApp):\n"+
                   "    OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]\n\n"
       var iniciar = "    def __init__(self, *args, **kwargs):\n"+
-                    "        super(RemoteController, self).__init__(*args, **kwargs)\n\n"
+                    "        super(RemoteController, self).__init__(*args, **kwargs)\n"+
+                    "        self.mac_to_port = {}\n\n"
       var configuracion = "    @set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)\n"+
                           "    def switch_features_handler(self, ev):\n"+
                           "        datapath = ev.msg.datapath\n"+
