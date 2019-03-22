@@ -8,7 +8,6 @@ Blockly.Blocks['packet_in'] = {
         .appendField(new Blockly.FieldTextInput("'Escribe la MAC'"), "mac-escrita");
     this.appendStatementInput("events")
         .setCheck("handler");
-    this.setNextStatement(true, "PortStatus");
     this.setColour(345);
  this.setTooltip("");
  this.setHelpUrl("");
@@ -53,26 +52,9 @@ Blockly.Blocks['flow_mod'] = {
         .appendField("or")
         .appendField(new Blockly.FieldCheckbox("FALSE"), "checkOP2")
         .appendField(new Blockly.FieldTextInput("'Puerto'"), "port-out");
-    this.setPreviousStatement(true, "handler");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
     this.setColour(60);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
-
-Blockly.Blocks['packet_in2'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("PACKET IN");
-    this.appendDummyInput()
-        .appendField("if MAC_dst")
-        .appendField(new Blockly.FieldDropdown([["==","=="], ["!=","!="]]), "conditions")
-        .appendField(new Blockly.FieldTextInput("'Escribe la MAC'"), "mac-escrita");
-    this.appendStatementInput("packetout")
-        .setCheck("handler");
-    this.appendStatementInput("flowmod")
-        .setCheck("handler");
-    this.setColour(330);
  this.setTooltip("");
  this.setHelpUrl("");
   }
@@ -89,7 +71,6 @@ Blockly.Blocks['port_status'] = {
     this.appendDummyInput()
         .appendField("Port:")
         .appendField(new Blockly.FieldTextInput("'Escribe el puerto'"), "port-out");
-    this.setPreviousStatement(true, "PortStatus");
     this.setColour(120);
  this.setTooltip("");
  this.setHelpUrl("");
