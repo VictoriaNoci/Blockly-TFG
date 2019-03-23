@@ -329,7 +329,8 @@ Code.attemptCodeGeneration = function(generator, prettyPrintType) {
   if (Code.checkAllGeneratorFunctionsDefined(generator)) {
     var code = generator.workspaceToCode(Code.workspace);
     if(content.id == 'content_pythonRYU') {
-      var header =  "# REMOTE CONTROLLER FOR RYU\n"+
+      var header =  "# coding=utf-8\n"+
+                    "# REMOTE CONTROLLER FOR RYU\n"+
                     "from ryu.base import app_manager\n"+
                     "from ryu.controller import ofp_event\n" +
                     "from ryu.controller.handler import CONFIG_DISPATCHER, MAIN_DISPATCHER\n"+
