@@ -356,8 +356,7 @@ Code.attemptCodeGeneration = function(generator, prettyPrintType) {
                           "        parser = datapath.ofproto_parser\n\n"+
                           "        inst = [parser.OFPInstructionActions(ofproto.OFPIT_APPLY_ACTIONS, actions)]\n"+
                           "        mod = parser.OFPFlowMod(datapath=datapath, priority=priority,match=match, instructions=inst)\n"+
-                          "        datapath.send_msg(mod)\n\n"+
-                          "# PACKET IN\n"
+                          "        datapath.send_msg(mod)\n\n";
       content.textContent = header + clase + iniciar + configuracion + code;
     } else {
       content.textContent = code;
