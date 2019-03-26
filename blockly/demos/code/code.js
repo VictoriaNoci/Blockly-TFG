@@ -337,6 +337,7 @@ Code.attemptCodeGeneration = function(generator, prettyPrintType) {
                     "from ryu.controller.handler import set_ev_cls\n"+
                     "from ryu.ofproto import ofproto_v1_3\n"+
                     "from ryu.lib.packet import packet\n"+
+                    "from ryu.app.ofctl import api\n"+
                     "from ryu.lib.packet import ethernet\n\n"
       var clase = "class RemoteController(app_manager.RyuApp):\n"+
                   "    OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]\n\n"

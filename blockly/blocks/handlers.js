@@ -3,9 +3,12 @@ Blockly.Blocks['packet_in'] = {
     this.appendDummyInput()
         .appendField("PACKET IN");
     this.appendDummyInput()
-        .appendField("if MAC_dst")
+        .appendField("MAC_dst")
         .appendField(new Blockly.FieldDropdown([["==","=="], ["!=","!="]]), "conditions")
-        .appendField(new Blockly.FieldTextInput("'Escribe la MAC'"), "mac-escrita");
+        .appendField(new Blockly.FieldTextInput("33:33:00:00:00:16"), "mac-escrita");
+    this.appendDummyInput()
+        .appendField("switch ==")
+        .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"]]), "switch");
     this.appendStatementInput("events")
         .setCheck("handler");
     this.setColour(345);
@@ -25,7 +28,7 @@ Blockly.Blocks['packet_out'] = {
     this.appendDummyInput()
         .appendField("Out_Port:")
         .appendField(new Blockly.FieldCheckbox("TRUE"), "checkOP")
-        .appendField(new Blockly.FieldDropdown([["ANY","ANY"], ["FLOOD","FLOOD"]]), "port")
+        .appendField(new Blockly.FieldDropdown([["ALL","ALL"], ["FLOOD","FLOOD"]]), "port")
         .appendField("or")
         .appendField(new Blockly.FieldCheckbox("FALSE"), "checkOP2")
         .appendField(new Blockly.FieldTextInput("'Puerto'"), "port-out");
@@ -48,7 +51,7 @@ Blockly.Blocks['flow_mod'] = {
     this.appendDummyInput()
         .appendField("Out_Port:")
         .appendField(new Blockly.FieldCheckbox("TRUE"), "checkOP")
-        .appendField(new Blockly.FieldDropdown([["ANY","ANY"], ["FLOOD","FLOOD"]]), "port")
+        .appendField(new Blockly.FieldDropdown([["ALL","ALL"], ["FLOOD","FLOOD"]]), "port")
         .appendField("or")
         .appendField(new Blockly.FieldCheckbox("FALSE"), "checkOP2")
         .appendField(new Blockly.FieldTextInput("'Puerto'"), "port-out");
@@ -63,7 +66,6 @@ Blockly.Blocks['flow_mod'] = {
 Blockly.Blocks['port_status'] = {
   init: function() {
     this.appendDummyInput()
-        .setAlign(Blockly.ALIGN_RIGHT)
         .appendField("PORT_STATUS");
     this.appendDummyInput()
         .appendField("Switch:")
@@ -71,6 +73,8 @@ Blockly.Blocks['port_status'] = {
     this.appendDummyInput()
         .appendField("Port:")
         .appendField(new Blockly.FieldTextInput("'Escribe el puerto'"), "port-out");
+    this.appendStatementInput("events")
+        .setCheck("handler");
     this.setColour(120);
  this.setTooltip("");
  this.setHelpUrl("");
