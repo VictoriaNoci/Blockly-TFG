@@ -357,7 +357,11 @@ Code.attemptCodeGeneration = function(generator, prettyPrintType) {
                           "        parser = datapath.ofproto_parser\n\n"+
                           "        inst = [parser.OFPInstructionActions(ofproto.OFPIT_APPLY_ACTIONS, actions)]\n"+
                           "        mod = parser.OFPFlowMod(datapath=datapath, priority=priority,match=match, instructions=inst)\n"+
-                          "        datapath.send_msg(mod)\n\n";
+                          "        datapath.send_msg(mod)\n\n"+
+                          "    def remove_table_flows(self, datapath, table_id, match, instructions):\n"+
+                          "        ofproto = datapath.ofproto\n"+
+                          "        flow_mod = datapath.ofproto_parser.OFPFlowMod(datapath, 0, 0,table_id, ofproto.OFPFC_DELETE, 0, 0, 1, ofproto.OFPCML_NO_BUFFER, ofproto.OFPP_ANY,ofproto.OFPG_ANY, 0, match, instructions)\n"+
+                          "        return flow_mod\n\n";
       content.textContent = header + clase + iniciar + configuracion + code;
     } else {
       content.textContent = code;

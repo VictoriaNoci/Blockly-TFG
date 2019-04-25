@@ -1,6 +1,9 @@
 Blockly.Blocks['packet_in'] = {
   init: function() {
     this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(new Blockly.FieldTextInput("1"), "block");
+    this.appendDummyInput()
         .appendField("PACKET IN");
     this.appendDummyInput()
         .appendField("MAC_dst")
@@ -8,7 +11,7 @@ Blockly.Blocks['packet_in'] = {
         .appendField(new Blockly.FieldTextInput("33:33:00:00:00:16"), "mac-escrita");
     this.appendDummyInput()
         .appendField("switch ==")
-        .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"]]), "switch");
+        .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"], ["3","3"]]), "switch");
     this.appendStatementInput("events")
         .setCheck("handler");
     this.setColour(345);
@@ -24,7 +27,7 @@ Blockly.Blocks['packet_out'] = {
         .appendField("PACKET_OUT ");
     this.appendDummyInput()
         .appendField("Switch:")
-        .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"]]), "switch");
+        .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"], ["3","3"]]), "switch");
     this.appendDummyInput()
         .appendField("Out_Port:")
         .appendField(new Blockly.FieldCheckbox("TRUE"), "checkOP")
@@ -46,8 +49,13 @@ Blockly.Blocks['flow_mod'] = {
         .setAlign(Blockly.ALIGN_CENTRE)
         .appendField("FLOW_MOD");
     this.appendDummyInput()
+        .appendField("MAC_dst")
+        .appendField(new Blockly.FieldTextInput("33:33:00:00:00:16"), "mac-escrita");
+    this.appendDummyInput()
         .appendField("Switch:")
-        .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"]]), "switch");
+        .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"], ["3","3"]]), "switch")
+        .appendField(new Blockly.FieldCheckbox("FALSE"), "checkBorrar")
+        .appendField("Borrar switch");
     this.appendDummyInput()
         .appendField("Out_Port:")
         .appendField(new Blockly.FieldCheckbox("TRUE"), "checkOP")
@@ -69,11 +77,18 @@ Blockly.Blocks['port_status'] = {
         .appendField("PORT_STATUS");
     this.appendDummyInput()
         .appendField("Switch:")
-        .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"]]), "switch");
-    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"], ["3","3"]]), "switch")
         .appendField("Port:")
-        .appendField(new Blockly.FieldTextInput("'Escribe el puerto'"), "port-out");
-    this.appendStatementInput("events")
+        .appendField(new Blockly.FieldTextInput("'Puerto'"), "port-out");
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_CENTRE)
+        .appendField("LINK-DOWN");
+    this.appendStatementInput("events-down")
+        .setCheck("handler");
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_CENTRE)
+        .appendField("LINK-UP");
+    this.appendStatementInput("events-up")
         .setCheck("handler");
     this.setColour(120);
  this.setTooltip("");
